@@ -1,0 +1,2 @@
+CREATE TABLE chantier (id INTEGER PRIMARY KEY AUTOINCREMENT, nom varchar(100) NOT NULL, lieu varchar(100) NOT NULL, foret varchar(100), client varchar(100) NOT NULL, codechantier varchar(100) NOT NULL, debut date, fin date);
+INSERT INTO chantier (nom, lieu, foret, client, codechantier, debut, fin) VALUES ('20170001', 'Mazamet', 'Boutonnet', 'Maraval', 'MAZBOUMAR', '2017-06-13', '2017-06-20');

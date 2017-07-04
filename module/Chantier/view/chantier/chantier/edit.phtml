@@ -1,0 +1,95 @@
+<?php
+
+$title = 'Modifier un chantier';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+
+$nom = $form->get('nom');
+$nom->setAttribute('class', 'form-control');
+$nom->setAttribute('placeholder', 'Nom');
+
+$lieu = $form->get('lieu');
+$lieu->setAttribute('class', 'form-control');
+$lieu->setAttribute('placeholder', 'Commune');
+
+$foret = $form->get('foret');
+$foret->setAttribute('class', 'form-control');
+$foret->setAttribute('placeholder', 'Foret');
+
+$client = $form->get('client');
+$client->setAttribute('class', 'form-control');
+$client->setAttribute('placeholder', 'Client');
+
+$codechantier = $form->get('codechantier');
+$codechantier->setAttribute('class', 'form-control');
+$codechantier->setAttribute('placeholder', 'Code chantier');
+
+$debut = $form->get('debut');
+$debut->setAttribute('class', 'form-control');
+$debut->setAttribute('placeholder', 'Date de debut');
+
+$fin = $form->get('fin');
+$fin->setAttribute('class', 'form-control');
+$fin->setAttribute('placeholder', 'Date de fin');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+$submit->setAttribute('value', 'Modifier');
+
+$form->setAttribute('action', $this->url('chantier', [
+    'action' => 'edit',
+    'id' => $id,
+]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+?>
+<div class="form-group">
+    <?= $this->formLabel($nom) ?>
+    <?= $this->formElement($nom) ?>
+    <?= $this->formElementErrors()->render($nom, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($lieu) ?>
+    <?= $this->formElement($lieu) ?>
+    <?= $this->formElementErrors()->render($lieu, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($foret) ?>
+    <?= $this->formElement($foret) ?>
+    <?= $this->formElementErrors()->render($foret, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($client) ?>
+    <?= $this->formElement($client) ?>
+    <?= $this->formElementErrors()->render($client, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($codechantier) ?>
+    <?= $this->formElement($codechantier) ?>
+    <?= $this->formElementErrors()->render($codechantier, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($debut) ?>
+    <?= $this->formElement($debut) ?>
+    <?= $this->formElementErrors()->render($debut, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($fin) ?>
+    <?= $this->formElement($fin) ?>
+    <?= $this->formElementErrors()->render($fin, ['class' => 'help-block']) ?>
+</div>
+
+<?php
+echo $this->formSubmit($form->get('submit'));
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();
